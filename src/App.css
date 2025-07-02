@@ -1,0 +1,38 @@
+
+.navbar-fixed{
+  position: fixed;
+  top: 0;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.product-size{
+  height: 200px;
+  width: 150px;
+}
+
+.text-hiding{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.font-size-12{
+  font-size: 12px;
+}
+
+.card-product-size{
+  height: 164px;
+  width: 150px;
+}
+
+.count{
+  padding: 3px 8px;
+}
+
+.count-number{
+  top: 10px;
+  right: -15px;
+}
