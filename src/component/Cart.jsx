@@ -142,17 +142,18 @@ const Cart = ({ cartAllProduct, setCartAllProduct }) => {
           //     No Products Available in Cart <i className="fa-solid fa-basket-shopping"></i>
           //   </h1>
           // </div><div className="col-12 col-sm-10 col-md-8 col-lg-6 mx-auto p-3 rounded text-center" style={{ background: "#0d6efd", boxShadow: "0 3px 6px rgba(0,0,0,0.2)" }}>
+          <div className="col-12 col-sm-10 col-md-8 col-lg-6 mx-auto p-3 rounded text-center" style={{ background: "#0d6efd", boxShadow: "0 3px 6px rgba(0,0,0,0.2)" }}>
   <h5 className="text-white m-0">
-  No Products Available in Cart <i className="fa-solid fa-basket-shopping"></i>
-</h5>
+    No Products Available in Cart <i className="fa-solid fa-basket-shopping"></i>
+  </h5>
 </div>
 
         ) : (
           <>
             {cartAllProduct.map((product) => (
-              <div key={product.id} className="col-12 col-md-6 border p-3 mb-3 rounded d-flex flex-column flex-md-row gap-4">
+              <div key={product.id} className="col-12 col-md-6 border p-3 mb-3 rounded d-flex flex-column flex-md-row gap-4" style={{marginTop : "50px"}}>
                 {/* Product Image */}
-                <div className="flex-shrink-0 text-center">
+                <div className="flex-shrink-0 text-center" >
                   <img className="card-product-size img-fluid" src={product.img} alt="" />
                 </div>
 
