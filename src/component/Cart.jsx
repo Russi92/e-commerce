@@ -137,11 +137,16 @@ const Cart = ({ cartAllProduct, setCartAllProduct }) => {
       <div className="row p-3">
 
         {cartAllProduct.length === 0 ? (
-          <div className="col-12 bg-primary rounded" style={{ background: "#fff", boxShadow: "0 5px 10px #0d6efd", width: "fit-content", margin: "auto" }}>
-            <h1 className="text-center fs-3 text-white">
-              No Products Available in Cart <i className="fa-solid fa-basket-shopping"></i>
-            </h1>
-          </div>
+          // <div className="col-12 bg-primary rounded" style={{ background: "#fff", boxShadow: "0 5px 10px #0d6efd", width: "fit-content", margin: "auto" }}>
+          //   <h1 className="text-center fs-3 text-white">
+          //     No Products Available in Cart <i className="fa-solid fa-basket-shopping"></i>
+          //   </h1>
+          // </div>
+          <div className="col-12 bg-primary rounded p-3 w-100 text-center">
+  <h1 className="fs-5 text-white m-0">
+    No Products Available in Cart <i className="fa-solid fa-basket-shopping"></i>
+  </h1>
+</div>
         ) : (
           <>
             {cartAllProduct.map((product) => (
