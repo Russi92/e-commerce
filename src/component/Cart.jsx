@@ -100,7 +100,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import Modal from 'react-modal';
 
 const Cart = ({ cartAllProduct, setCartAllProduct }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false); // ✅ هنا مكانه الصح
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleIncrease = (id) => {
     setCartAllProduct((prev) =>
@@ -114,8 +114,7 @@ const Cart = ({ cartAllProduct, setCartAllProduct }) => {
     setCartAllProduct((prev) =>
       prev.map((item) =>
         item.id === id && item.count > 1
-          ? { ...item, count: item.count - 1 }
-          : item
+          ? { ...item, count: item.count - 1 } : item
       )
     );
   };
@@ -146,33 +145,33 @@ const Cart = ({ cartAllProduct, setCartAllProduct }) => {
         ) : (
           <>
             {cartAllProduct.map((product) => (
-              <div key={product.id} className="col-6 border p-3 mb-3 rounded d-flex gap-4">
-                <div>
-                  <div>
-                    <img className="card-product-size" src={product.img} alt="" />
-                  </div>
+              <div key={product.id} className="col-12 col-md-6 border p-3 mb-3 rounded d-flex flex-column flex-md-row gap-4">
+                {/* Product Image */}
+                <div className="flex-shrink-0 text-center">
+                  <img className="card-product-size img-fluid" src={product.img} alt="" />
+                </div>
 
-                  <div className="d-flex justify-content-between align-items-center gap-3">
+                {/* Product Details */}
+                <div className="flex-grow-1">
+                  <div className="d-flex justify-content-between align-items-center gap-3 flex-wrap">
                     <h4 className="text-hiding m-0">{product.brand}</h4>
                     <h6 className="text-hiding m-0">{product.model.toUpperCase()}</h6>
                   </div>
 
                   <p className="m-0">
-                    Total: {product.price * product.count}{" "}
-                    <i className="fa-solid fa-sterling-sign"></i>
+                    Total: {product.price * product.count} <i className="fa-solid fa-sterling-sign"></i>
                   </p>
 
                   <div className="m-0 fw-normal font-size-12">{product.space}</div>
                   <div className="m-0 fw-normal font-size-12">{product.camera}</div>
 
-                  <div className="d-flex gap-2 align-items-center">
+                  <div className="d-flex gap-2 align-items-center my-2">
                     <button className="btn btn-sm btn-primary" onClick={() => handleDecrease(product.id)}>-</button>
                     <span>{product.count}</span>
                     <button className="btn btn-sm btn-primary" onClick={() => handleIncrease(product.id)}>+</button>
                   </div>
-                </div>
-                <div className="d-flex gap-3">
-                  <p>{product.description}</p>
+
+                  <p className="text-muted">{product.description}</p>
                   <p onClick={() => handleDelete(product.id)} className="text-danger pointer">
                     <i className="fa-solid fa-trash fs-5"></i>
                   </p>
@@ -180,7 +179,7 @@ const Cart = ({ cartAllProduct, setCartAllProduct }) => {
               </div>
             ))}
 
-            {/* ✅ زر Buy Now */}
+            {/* Buy Now Button */}
             <div className="text-center mt-4">
               <button className="btn btn-primary" onClick={() => setIsModalOpen(true)}>
                 Buy Now
@@ -189,31 +188,33 @@ const Cart = ({ cartAllProduct, setCartAllProduct }) => {
           </>
         )}
 
-        {/* ✅ المودال */}
+        {/* Modal */}
         <Modal
-            isOpen={isModalOpen}
-            onRequestClose={() => setIsModalOpen(false)}
-            contentLabel="Order Form"
-            style={{
-                overlay: {
-                backgroundColor: "rgba(0, 0, 0, 0.4)",
-                backdropFilter: "blur(6px)", // ✅ تأثير الـ blur هنا
-                },
-                content: {
-                width: "500px",
-                margin: "auto",
-                borderRadius: "10px",
-                padding: "30px",
-                height: "fit-content",
-                },
-            }}
-            >
+          isOpen={isModalOpen}
+          onRequestClose={() => setIsModalOpen(false)}
+          contentLabel="Order Form"
+          style={{
+            overlay: {
+              backgroundColor: "rgba(0, 0, 0, 0.4)",
+              backdropFilter: "blur(6px)",
+            },
+            content: {
+              width: "100%",
+              maxWidth: "500px",
+              margin: "auto",
+              borderRadius: "10px",
+              padding: "30px",
+              height: "fit-content",
+            },
+          }}
+        >
           <h3 className="mb-3">📝 Complete Your Order</h3>
           <form
             onSubmit={(e) => {
               e.preventDefault();
               alert("Your order has been submitted ✅");
               setIsModalOpen(false);
+              setCartAllProduct([]); // ✅ تفريغ السلة بعد الطلب (اختياري)
             }}
           >
             <div className="mb-3">
