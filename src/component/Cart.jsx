@@ -141,12 +141,12 @@ const Cart = ({ cartAllProduct, setCartAllProduct }) => {
           //   <h1 className="text-center fs-3 text-white">
           //     No Products Available in Cart <i className="fa-solid fa-basket-shopping"></i>
           //   </h1>
-          // </div>
-          <div className="col-12 bg-primary rounded p-3 w-100 text-center">
-  <h1 className="fs-5 text-white m-0">
-    No Products Available in Cart <i className="fa-solid fa-basket-shopping"></i>
-  </h1>
+          // </div><div className="col-12 col-sm-10 col-md-8 col-lg-6 mx-auto p-3 rounded text-center" style={{ background: "#0d6efd", boxShadow: "0 3px 6px rgba(0,0,0,0.2)" }}>
+  <h5 className="text-white m-0">
+  No Products Available in Cart <i className="fa-solid fa-basket-shopping"></i>
+</h5>
 </div>
+
         ) : (
           <>
             {cartAllProduct.map((product) => (
